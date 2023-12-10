@@ -18,7 +18,7 @@ const TaskItem = ({id, task, details, completed} ) => {
   return (
     <>
     <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-      <div class="inline-flex items-center space-x-2">
+      <div className="inline-flex items-center space-x-2">
         <button onClick={handleCompleteClick}>{completed ? <CheckMarkChecked /> : <CheckMark />}</button>
         <div className={`${completed ? "text-slate-500 line-through" : "" }`}>{task}</div>
       </div>
