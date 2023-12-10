@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteTask, completeTask } from '../reducers/tasks';
+import { CheckMark, CheckMarkChecked, TrashCan } from '../icons/Icons';
 
 const TaskItem = ({id, task, details, completed} ) => {
   const dispatch = useDispatch();
@@ -15,12 +16,15 @@ const TaskItem = ({id, task, details, completed} ) => {
   };
 
   return (
-    <div className="w-full mb-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <h5 className={`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ${completed ? "line-through" : "" }`}>{task}</h5>
-      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{details}</p>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={handleDeleteClick}>Delete</button>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" onClick={handleCompleteClick}>Complete</button>
+    <>
+    <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+      <div class="inline-flex items-center space-x-2">
+        <button onClick={handleCompleteClick}>{completed ? <CheckMarkChecked /> : <CheckMark />}</button>
+        <div className={`${completed ? "text-slate-500 line-through" : "" }`}>{task}</div>
+      </div>
+      <button onClick={handleDeleteClick}><TrashCan /></button>
     </div>
+    </>
   )
 }
 
