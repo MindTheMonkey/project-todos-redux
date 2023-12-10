@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { taskList } from "../reducers/tasks";
+import { CreateTask } from "./CreateTask";
 import TaskItem from "./TaskItem";
+
 
 
 const TaskList = () => {
@@ -9,6 +11,7 @@ console.log(tasks)
  
   return (
     <div>
+        <CreateTask />
         {tasks.map(({id, details , completed, task}) => (
           <TaskItem
             key={id} 
